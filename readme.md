@@ -21,19 +21,15 @@ The project focuses on several quantitative finance concepts relevant to financi
 The Vasicek model is a one-factor mean-reverting short-rate model defined by the stochastic differential equation:
 
 $$
-[
 dr_t = \kappa(\theta-r_t)dt+\sigma dW_t
-]
 $$
 
 Where:
-$$
 - (r_t) – instantaneous short-term interest rate
 - (\kappa) – speed of mean reversion
 - (\theta) – long-term mean interest rate
 - (\sigma) – interest-rate volatility
 - (dW_t) – increment of a standard Brownian motion
-$$
 
 Parameter Interpretation
 
@@ -52,9 +48,7 @@ Measures the instantaneous volatility of interest-rate movements.
 The half-life of a deviation from the long-term mean is calculated as:
 
 $$
-[
 t_{1/2}=\frac{\ln(2)}{\kappa}
-]
 $$
 
 It represents the time required for half of the deviation from the long-term mean to disappear.
@@ -102,26 +96,20 @@ The first calibration approach uses Maximum Likelihood Estimation (MLE).
 The Vasicek model has an exact conditional transition distribution:
 
 $$
-[
 r_{t+\Delta t}|r_t \sim N(\mu_t,v_t)
-]
 $$
 
 Where:
 
 $$
-[
 \mu_t=\theta+(r_t-\theta)e^{-\kappa\Delta t}
-]
 $$
 
 And:
 
 $$
-[
 v_t=\frac{\sigma^2}{2\kappa}
 (1-e^{-2\kappa\Delta t})
-]
 $$
 
 The estimation accounts for the actual calendar time between observations rather than assuming equally spaced daily observations.
@@ -145,11 +133,9 @@ After calibrating the model, Monte Carlo simulation was implemented to generate 
 The simulation uses the exact conditional Vasicek transition equation:
 
 $$
-[
 r_{t+\Delta t}=
 \theta+(r_t-\theta)e^{-\kappa\Delta t}
 +\sqrt{v_t}Z_t
-]
 $$
 
 Where (Z_t) is a standard normally distributed random variable.
@@ -177,6 +163,8 @@ Probability of a negative terminal rate| 0.00%
 The results illustrate the range of potential future interest-rate outcomes under the model assumptions.
 
 These simulated values are conditional on the selected parameters and should not be interpreted as guaranteed forecasts.
+
+![Monte Carlo Simulation](vasicek_simulation.png)
 
 ## 6. Interest-Rate Regime Analysis
 
@@ -213,10 +201,8 @@ To assess the robustness of the parameter estimates, a second estimation approac
 The NLS approach minimizes the squared differences between observed rates and the model-implied conditional mean:
 
 $$
-[
 r_{t+\Delta t}=
 \theta+(r_t-\theta)e^{-\kappa\Delta t}+\varepsilon_t
-]
 $$
 
 The parameters κ and θ are estimated by nonlinear optimization. Sigma is subsequently estimated from the transition residuals.
