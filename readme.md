@@ -24,9 +24,10 @@ $$
 [
 dr_t = \kappa(\theta-r_t)dt+\sigma dW_t
 ]
+$$
 
 Where:
-
+$$
 - (r_t) – instantaneous short-term interest rate
 - (\kappa) – speed of mean reversion
 - (\theta) – long-term mean interest rate
@@ -104,15 +105,19 @@ $$
 [
 r_{t+\Delta t}|r_t \sim N(\mu_t,v_t)
 ]
+$$
 
 Where:
 
+$$
 [
 \mu_t=\theta+(r_t-\theta)e^{-\kappa\Delta t}
 ]
+$$
 
 And:
 
+$$
 [
 v_t=\frac{\sigma^2}{2\kappa}
 (1-e^{-2\kappa\Delta t})
@@ -145,9 +150,10 @@ r_{t+\Delta t}=
 \theta+(r_t-\theta)e^{-\kappa\Delta t}
 +\sqrt{v_t}Z_t
 ]
+$$
 
 Where (Z_t) is a standard normally distributed random variable.
-$$ 
+ 
 
 Simulation Setup
 
